@@ -16,7 +16,7 @@ public class MainWindow extends JFrame {
 		setTitle("Parques Game");
 		setLayout(new BorderLayout());
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setSize(250, 250);
+		setSize(600, 600);
 		setResizable(false);
 
 		parquesGame = new Parques();

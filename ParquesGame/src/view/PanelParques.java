@@ -134,47 +134,120 @@ public class PanelParques extends JPanel {
 
 	}
 
-	public void actualizarZonaUno(Color fichasUno, Color fichasDos, Color fichasTres, Color fichasCuatro) {
+	public void actualizarZonas(Color fichasUno, Color fichasDos, Color fichasTres, Color fichasCuatro) {
 
 		Casilla[][] zonaUno = inicio.getWindow().getParquesGame().getZonaUno();
+		Casilla[][] zonaDos = inicio.getWindow().getParquesGame().getZonaDos();
+		Casilla[][] zonaTres = inicio.getWindow().getParquesGame().getZonaTres();
+		Casilla[][] zonaCuatro = inicio.getWindow().getParquesGame().getZonaCuatro();
 
-		Color c = zonaUnoBut[0][0].getComponent(0).getBackground();
+		actualizarZona(zonaUno, fichasUno, fichasDos, fichasTres, fichasCuatro);
+		actualizarZona(zonaDos, fichasUno, fichasDos, fichasTres, fichasCuatro);
+		actualizarZona(zonaTres, fichasUno, fichasDos, fichasTres, fichasCuatro);
+		actualizarZona(zonaCuatro, fichasUno, fichasDos, fichasTres, fichasCuatro);
 
-		for (int i = 0; i < zonaUno.length; i++) {
-			for (int j = 0; j < zonaUno[0].length; j++) {
-				for (int k = 0; k < zonaUno[i][j].getFichas().length; k++) {
+	}
 
-					if (zonaUno[i][j].getFichas()[j] != null) {
+	public void actualizarZona(Casilla[][] zona, Color fichasUno, Color fichasDos, Color fichasTres,
+			Color fichasCuatro) {
 
-						switch (zonaUno[i][j].getFichas()[j].getTipo()) {
+		boolean isUno = false;
+		boolean isDos = false;
+		boolean isTres = false;
+		boolean isCuatro = false;
+
+		// Para dejar casillas con el color predeterminado
+		Color normal = zonaUnoBut[0][0].getComponent(0).getBackground();
+		JButton[][] zonaBut = null;
+
+		// Conocer que zona es para actualizar la correspondiente en la interfaz.
+		switch (zona[0][0].getPosicion()) {
+
+		case 83:
+			zonaBut = zonaUnoBut;
+			isUno = true;
+			break;
+
+		case 4:
+			zonaBut = zonaDosBut;
+			isDos = true;
+			break;
+
+		case 51:
+			zonaBut = zonaTresBut;
+			isTres = true;
+			break;
+
+		case 68:
+			zonaBut = zonaCuatroBut;
+			isCuatro = true;
+			break;
+
+		}
+
+		for (int i = 0; i < zona.length; i++) {
+			for (int j = 0; j < zona[0].length; j++) {
+				for (int k = 0; k < zona[i][j].getFichas().length; k++) {
+
+					if (zona[i][j].getFichas()[k] != null) {
+
+						switch (zona[i][j].getFichas()[k].getTipo()) {
 
 						case 1:
+
+							zonaBut[i][j].getComponent(k).setBackground(fichasUno.darker().darker());
 
 							break;
 
 						case 2:
 
+							zonaBut[i][j].getComponent(k).setBackground(fichasDos.darker().darker());
+
 							break;
 
 						case 3:
 
+							zonaBut[i][j].getComponent(k).setBackground(fichasTres.darker().darker());
+
 							break;
 
 						case 4:
+
+							zonaBut[i][j].getComponent(k).setBackground(fichasCuatro.darker().darker());
 
 							break;
 
 						}
 
 					} else {
-						
-						
+
+						zonaBut[i][j].getComponent(k).setBackground(normal);
 
 					}
 
 				}
 
 			}
+
+		}
+
+		// Asignar la auxiliar zonaBut a la zona correspondiente para actualizar la
+		// interfaz.
+		if (isUno) {
+
+			zonaUnoBut = zonaBut;
+
+		} else if (isDos) {
+
+			zonaDosBut = zonaBut;
+
+		} else if (isTres) {
+
+			zonaTresBut = zonaBut;
+
+		} else if (isCuatro) {
+
+			zonaCuatroBut = zonaBut;
 
 		}
 

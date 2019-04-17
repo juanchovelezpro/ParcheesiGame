@@ -21,7 +21,7 @@ public class PanelInicio extends JPanel implements ActionListener {
 		butJugar = new JButton("JUGAR");
 		butJugar.addActionListener(this);
 
-		add(butJugar);
+		add(butJugar, BorderLayout.SOUTH);
 
 	}
 
