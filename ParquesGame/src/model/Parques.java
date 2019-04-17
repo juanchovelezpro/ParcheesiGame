@@ -1,12 +1,9 @@
 package model;
 
-import java.util.Arrays;
-
 public class Parques {
 
 	private Jugador[] jugadores;
 	private Casilla[] casillas;
-
 	private Casilla[][] zonaUno;
 	private Casilla[][] zonaDos;
 	private Casilla[][] zonaTres;

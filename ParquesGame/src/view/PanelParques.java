@@ -26,21 +26,8 @@ public class PanelParques extends JPanel {
 
 		setLayout(new GridLayout(3, 3));
 
-		zonaUnoBut = new JButton[3][8];
-		zonaDosBut = new JButton[8][3];
-		zonaTresBut = new JButton[3][8];
-		zonaCuatroBut = new JButton[8][3];
-		
-		panelZonaUno = new JPanel();
-		panelZonaDos = new JPanel();
-		panelZonaTres = new JPanel();
-		panelZonaCuatro = new JPanel();
+		init();
 
-		panelZonaUno.setLayout(new GridLayout(3, 8));
-		panelZonaDos.setLayout(new GridLayout(8, 3));
-		panelZonaTres.setLayout(new GridLayout(3, 8));
-		panelZonaCuatro.setLayout(new GridLayout(8, 3));
-		
 		refillZonas();
 
 		add(new JLabel());
@@ -55,17 +42,35 @@ public class PanelParques extends JPanel {
 
 	}
 
-	public void refillZonas() {
-		
-	refillZonaUno_ZonaTres();
-	refillZonaDos_Cuatro();
-		
+	public void init() {
+
+		zonaUnoBut = new JButton[3][8];
+		zonaDosBut = new JButton[8][3];
+		zonaTresBut = new JButton[3][8];
+		zonaCuatroBut = new JButton[8][3];
+
+		panelZonaUno = new JPanel();
+		panelZonaDos = new JPanel();
+		panelZonaTres = new JPanel();
+		panelZonaCuatro = new JPanel();
+
+		panelZonaUno.setLayout(new GridLayout(3, 8));
+		panelZonaDos.setLayout(new GridLayout(8, 3));
+		panelZonaTres.setLayout(new GridLayout(3, 8));
+		panelZonaCuatro.setLayout(new GridLayout(8, 3));
+
 	}
-	
+
+	public void refillZonas() {
+
+		refillZonaUno_ZonaTres();
+		refillZonaDos_Cuatro();
+
+	}
+
 	public void refillZonaUno_ZonaTres() {
 
 		Casilla[][] zonaUno = inicio.getWindow().getParquesGame().getZonaUno();
-		Casilla[][] zonaTres = inicio.getWindow().getParquesGame().getZonaTres();
 
 		for (int i = 0; i < zonaUno.length; i++) {
 
@@ -99,7 +104,6 @@ public class PanelParques extends JPanel {
 	public void refillZonaDos_Cuatro() {
 
 		Casilla[][] zonaDos = inicio.getWindow().getParquesGame().getZonaDos();
-		Casilla[][] zonaCuatro = inicio.getWindow().getParquesGame().getZonaCuatro();
 
 		for (int i = 0; i < zonaDos.length; i++) {
 
@@ -123,6 +127,52 @@ public class PanelParques extends JPanel {
 
 				panelZonaDos.add(zonaDosBut[i][j]);
 				panelZonaCuatro.add(zonaCuatroBut[i][j]);
+
+			}
+
+		}
+
+	}
+
+	public void actualizarZonaUno(Color fichasUno, Color fichasDos, Color fichasTres, Color fichasCuatro) {
+
+		Casilla[][] zonaUno = inicio.getWindow().getParquesGame().getZonaUno();
+
+		Color c = zonaUnoBut[0][0].getComponent(0).getBackground();
+
+		for (int i = 0; i < zonaUno.length; i++) {
+			for (int j = 0; j < zonaUno[0].length; j++) {
+				for (int k = 0; k < zonaUno[i][j].getFichas().length; k++) {
+
+					if (zonaUno[i][j].getFichas()[j] != null) {
+
+						switch (zonaUno[i][j].getFichas()[j].getTipo()) {
+
+						case 1:
+
+							break;
+
+						case 2:
+
+							break;
+
+						case 3:
+
+							break;
+
+						case 4:
+
+							break;
+
+						}
+
+					} else {
+						
+						
+
+					}
+
+				}
 
 			}
 

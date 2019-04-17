@@ -3,6 +3,26 @@ package model;
 public class Jugador {
 
 	private String nombre;
+	private int numero;
+	private Ficha[] fichas;
+	private boolean turno;
+	private Dado dadoUno;
+	private Dado dadoDos;
+
+	public Jugador(String nombre, int numero) {
+
+		this.nombre = nombre;
+		this.numero = numero;
+
+		turno = false;
+
+		dadoUno = new Dado();
+		dadoDos = new Dado();
+
+		fichas = new Ficha[4];
+
+	}
+
 	public Dado getDadoUno() {
 		return dadoUno;
 	}
@@ -17,26 +37,6 @@ public class Jugador {
 
 	public void setDadoDos(Dado dadoDos) {
 		this.dadoDos = dadoDos;
-	}
-
-	private int numero;
-	private Ficha[] fichas;
-	private boolean turno;
-	private Dado dadoUno;
-	private Dado dadoDos;
-
-	public Jugador(String nombre, int numero) {
-
-		this.nombre = nombre;
-		this.numero = numero;
-
-		turno = false;
-		
-		dadoUno = new Dado();
-		dadoDos = new Dado();
-
-		fichas = new Ficha[4];
-
 	}
 
 	public boolean isTurno() {

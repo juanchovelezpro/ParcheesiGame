@@ -17,6 +17,7 @@ public class MainWindow extends JFrame {
 		setLayout(new BorderLayout());
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(250, 250);
+		setResizable(false);
 
 		parquesGame = new Parques();
 		inicio = new PanelInicio(this);
