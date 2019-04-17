@@ -105,12 +105,75 @@ public class PanelInicio extends JPanel implements ActionListener {
 		this.butJugar = butJugar;
 	}
 
+	public void personalizarParques(Color uno, Color dos, Color tres, Color cuatro) {
+
+		// Se pintan las casillas casa para cada equipo
+
+		for (int k = 0; k < parques.getZonaUnoBut()[0].length; k++) {
+
+			parques.getZonaUnoBut()[1][k].setBackground(uno);
+
+		}
+
+		for (int k = 0; k < parques.getZonaDosBut().length; k++) {
+
+			parques.getZonaDosBut()[k][1].setBackground(dos);
+
+		}
+
+		for (int k = 0; k < parques.getZonaTresBut()[0].length; k++) {
+
+			parques.getZonaTresBut()[1][k].setBackground(tres);
+
+		}
+
+		for (int k = 0; k < parques.getZonaCuatroBut().length; k++) {
+
+			parques.getZonaCuatroBut()[k][1].setBackground(cuatro);
+
+		}
+
+		// Casillas Seguro
+
+		parques.getZonaUnoBut()[1][0].setBackground(Color.DARK_GRAY);
+
+		parques.getZonaUnoBut()[0][4].setBackground(Color.DARK_GRAY);
+
+		parques.getZonaDosBut()[3][0].setBackground(Color.DARK_GRAY);
+
+		parques.getZonaDosBut()[7][1].setBackground(Color.DARK_GRAY);
+
+		parques.getZonaTresBut()[1][7].setBackground(Color.DARK_GRAY);
+
+		parques.getZonaTresBut()[2][3].setBackground(Color.DARK_GRAY);
+
+		parques.getZonaCuatroBut()[0][1].setBackground(Color.DARK_GRAY);
+
+		parques.getZonaCuatroBut()[4][2].setBackground(Color.DARK_GRAY);
+
+		// Fin Casillas Seguro
+
+		// Se pintan las casillas salida de los equipos
+
+		parques.getZonaUnoBut()[2][4].setBackground(uno);
+
+		parques.getZonaDosBut()[3][2].setBackground(dos);
+
+		parques.getZonaTresBut()[0][3].setBackground(tres);
+
+		parques.getZonaCuatroBut()[4][0].setBackground(cuatro);
+
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
 		if (e.getSource().equals(butJugar)) {
 
 			parques = new PanelParques(this);
+
+			personalizarParques(butsColores[0].getBackground(), butsColores[1].getBackground(),
+					butsColores[2].getBackground(), butsColores[3].getBackground());
 
 			window.remove(this);
 			window.add(parques);
