@@ -16,6 +16,7 @@ public class PanelInicio extends JPanel implements ActionListener {
 	private JTextField[] txtNombres;
 	private JButton[] butsColores;
 	private JDialog[] dialogsColores;
+	private JButton[] butsEscogerColor;
 	private JColorChooser[] coloresJugadores;
 	private JPanel auxPanel;
 
@@ -45,6 +46,7 @@ public class PanelInicio extends JPanel implements ActionListener {
 		coloresJugadores = new JColorChooser[4];
 		txtNombres = new JTextField[4];
 		dialogsColores = new JDialog[4];
+		butsEscogerColor = new JButton[4];
 
 		for (int i = 1; i < 5; i++) {
 
@@ -56,11 +58,15 @@ public class PanelInicio extends JPanel implements ActionListener {
 			labsJugadores[i - 1].setFont(new Font("Garamond", 1, 20));
 			labsJugadores[i - 1].setHorizontalAlignment(SwingConstants.CENTER);
 
+			butsEscogerColor[i - 1] = new JButton("ESCOGER");
+			butsEscogerColor[i - 1].addActionListener(this);
+
 			txtNombres[i - 1] = new JTextField();
 			coloresJugadores[i - 1] = new JColorChooser();
 			dialogsColores[i - 1] = new JDialog(window, "Escoge un color");
-
-			dialogsColores[i - 1].add(coloresJugadores[i - 1]);
+			dialogsColores[i - 1].setLayout(new BorderLayout());
+			dialogsColores[i - 1].add(coloresJugadores[i - 1], BorderLayout.CENTER);
+			dialogsColores[i - 1].add(butsEscogerColor[i - 1], BorderLayout.SOUTH);
 			dialogsColores[i - 1].pack();
 
 			auxPanel.add(labsJugadores[i - 1]);
@@ -206,8 +212,23 @@ public class PanelInicio extends JPanel implements ActionListener {
 
 			dialogsColores[3].setVisible(true);
 
+		} else if (e.getSource().equals(butsEscogerColor[0])) {
+
+			dialogsColores[0].dispose();
+
+		} else if (e.getSource().equals(butsEscogerColor[1])) {
+
+			dialogsColores[1].dispose();
+
+		} else if (e.getSource().equals(butsEscogerColor[2])) {
+
+			dialogsColores[2].dispose();
+
+		} else if (e.getSource().equals(butsEscogerColor[3])) {
+
+			dialogsColores[3].dispose();
+
 		}
 
 	}
-
 }
