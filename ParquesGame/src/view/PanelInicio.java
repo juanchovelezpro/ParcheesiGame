@@ -78,7 +78,7 @@ public class PanelInicio extends JPanel implements ActionListener {
 
 		for (int i = 0; i < butsColores.length; i++) {
 
-			if (coloresJugadores[i].getColor() != null) {
+			if (coloresJugadores[i].getColor() != Color.WHITE) {
 
 				butsColores[i].setBackground(coloresJugadores[i].getColor());
 
@@ -172,13 +172,23 @@ public class PanelInicio extends JPanel implements ActionListener {
 
 			parques = new PanelParques(this);
 
-			personalizarParques(butsColores[0].getBackground(), butsColores[1].getBackground(),
-					butsColores[2].getBackground(), butsColores[3].getBackground());
+			if (coloresJugadores[0].getColor() != Color.WHITE && coloresJugadores[1].getColor() != Color.WHITE
+					&& coloresJugadores[2].getColor() != Color.WHITE && coloresJugadores[3].getColor() != Color.WHITE) {
 
-			window.remove(this);
-			window.add(parques);
-			window.setSize(1400, 1000);
-			window.refresh();
+				personalizarParques(butsColores[0].getBackground(), butsColores[1].getBackground(),
+						butsColores[2].getBackground(), butsColores[3].getBackground());
+
+				window.remove(this);
+				window.add(parques);
+				window.setSize(1400, 1000);
+				window.refresh();
+
+			} else {
+
+				JOptionPane.showMessageDialog(null, "Todos los jugadores deben escoger un color", "Error",
+						JOptionPane.ERROR_MESSAGE);
+
+			}
 
 		} else if (e.getSource().equals(butsColores[0])) {
 
