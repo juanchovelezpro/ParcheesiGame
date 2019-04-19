@@ -176,6 +176,12 @@ public class PanelJugador extends JPanel implements ActionListener {
 		if (e.getSource().equals(butLanzarDados)) {
 
 			System.out.println("Lanzando dados - Player#" + id);
+			
+			Jugador[] jugadores = parques.getInicio().getWindow().getParquesGame().getJugadores();
+			
+			jugadores[id-1].lanzarDados();
+			
+			
 
 		} else if (e.getSource().equals(butsFichasLibres[0])) {
 

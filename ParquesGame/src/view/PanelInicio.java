@@ -256,6 +256,8 @@ public class PanelInicio extends JPanel implements ActionListener {
 
 			}
 			
+			window.getParquesGame().getJugadores()[1].setTurno(true);
+			
 			parques = new PanelParques(this);
 
 			if (coloresJugadores[0].getColor() != Color.WHITE && coloresJugadores[1].getColor() != Color.WHITE
