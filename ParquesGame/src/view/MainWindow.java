@@ -3,6 +3,7 @@ package view;
 import javax.swing.*;
 
 import model.Parques;
+import tools.ResourceLoader;
 
 import java.awt.*;
 
@@ -19,6 +20,8 @@ public class MainWindow extends JFrame {
 		setSize(500, 200);
 		setResizable(false);
 
+		setIconImage(ResourceLoader.loadImage("/logo.png"));
+		
 		parquesGame = new Parques();
 		inicio = new PanelInicio(this);
 
