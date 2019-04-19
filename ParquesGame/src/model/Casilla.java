@@ -30,8 +30,15 @@ public abstract class Casilla {
 	public int getPosicion() {
 		return posicion;
 	}
+
 	public void setPosicion(int posicion) {
 		this.posicion = posicion;
+	}
+
+	public int getTipoFicha() {
+
+		return 0;
+
 	}
 
 	@Override

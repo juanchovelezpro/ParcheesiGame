@@ -2,27 +2,40 @@ package model;
 
 public class CasillaCasa extends Casilla {
 
-	private int casaFicha;
-	
-	public CasillaCasa(int posicion, int casaFicha) {
+	private int tipoFicha;
+
+	public CasillaCasa(int posicion, int tipoFicha) {
 		super(posicion);
-		
-		this.casaFicha = casaFicha;
-		
+
+		this.tipoFicha = tipoFicha;
+
 	}
 
-	public int getCasaFicha() {
-		return casaFicha;
+	@Override
+	public int getTipoFicha() {
+		return tipoFicha;
 	}
 
-	public void setCasaFicha(int casaFicha) {
-		this.casaFicha = casaFicha;
+	public void setTipoFicha(int tipoFicha) {
+		this.tipoFicha = tipoFicha;
 	}
 
 	@Override
 	public void agregarFicha(Ficha ficha) {
-	
-		
+
+		boolean agregada = false;
+
+		for (int i = 0; i < getFichas().length && !agregada; i++) {
+
+			if (getFichas()[i] == null) {
+
+				getFichas()[i] = ficha;
+				agregada = true;
+
+			}
+
+		}
+
 	}
 
 }

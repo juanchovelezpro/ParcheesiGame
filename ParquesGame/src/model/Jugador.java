@@ -20,6 +20,8 @@ public class Jugador {
 		dadoDos = new Dado();
 
 		fichas = new Ficha[4];
+		
+		generarFichas();
 
 	}
 
