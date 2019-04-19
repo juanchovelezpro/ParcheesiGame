@@ -18,32 +18,55 @@ public class CasillaSalida extends Casilla {
 
 		boolean agregada = false;
 
-		ArrayList<Integer> posIntrusos = new ArrayList<>();
+		if (hayFichas()) {
+			if (ficha.getTipo() == salidaFicha) {
 
-		for (int i = 0; i < getFichas().length; i++) {
+				ArrayList<Integer> posIntrusos = new ArrayList<>();
 
-			if (getFichas()[i] != null) {
+				for (int i = 0; i < getFichas().length; i++) {
 
-				if (getFichas()[i].getTipo() != salidaFicha) {
+					if (getFichas()[i] != null) {
 
-					posIntrusos.add(i);
+						if (getFichas()[i].getTipo() != salidaFicha) {
+
+							posIntrusos.add(i);
+
+						}
+
+					}
 
 				}
 
-			}
+				if (posIntrusos.isEmpty()) {
 
-		}
+					for (int i = 0; i < getFichas().length && !agregada; i++) {
 
-		if (ficha.getTipo() == salidaFicha) {
+						if (getFichas()[i] == null) {
 
-			if (posIntrusos.isEmpty()) {
+							getFichas()[i] = ficha;
+							agregada = true;
 
-				for (int i = 0; i < getFichas().length && !agregada; i++) {
+						}
 
-					if (getFichas()[i] == null) {
+					}
 
-						getFichas()[i] = ficha;
-						agregada = true;
+				} else {
+
+					for (int i = 0; i < posIntrusos.size(); i++) {
+
+						getFichas()[posIntrusos.get(i)].setLibre(false);
+						getFichas()[posIntrusos.get(i)] = null;
+
+					}
+
+					for (int i = 0; i < getFichas().length && !agregada; i++) {
+
+						if (getFichas()[i] == null) {
+
+							getFichas()[i] = ficha;
+							agregada = true;
+
+						}
 
 					}
 
@@ -51,13 +74,6 @@ public class CasillaSalida extends Casilla {
 
 			} else {
 
-				for (int i = 0; i < posIntrusos.size(); i++) {
-
-					getFichas()[posIntrusos.get(i)].setLibre(false);
-					getFichas()[posIntrusos.get(i)] = null;
-
-				}
-
 				for (int i = 0; i < getFichas().length && !agregada; i++) {
 
 					if (getFichas()[i] == null) {
@@ -70,6 +86,9 @@ public class CasillaSalida extends Casilla {
 				}
 
 			}
+		} else {
+
+		getFichas()[0] = ficha;
 
 		}
 

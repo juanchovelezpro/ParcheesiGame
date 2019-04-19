@@ -8,6 +8,7 @@ public class Jugador {
 	private boolean turno;
 	private Dado dadoUno;
 	private Dado dadoDos;
+	
 
 	public Jugador(String nombre, int numero) {
 

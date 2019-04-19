@@ -15,6 +15,23 @@ public abstract class Casilla {
 
 	}
 
+	public void quitarFicha(Ficha ficha) {
+
+		boolean quitada = false;
+
+		for (int i = 0; i < fichas.length && !quitada; i++) {
+
+			if (fichas[i] == ficha) {
+
+				fichas[i] = null;
+				quitada = true;
+
+			}
+
+		}
+
+	}
+
 	public void agregarFicha(Ficha ficha) {
 
 	}
@@ -38,6 +55,24 @@ public abstract class Casilla {
 	public int getTipoFicha() {
 
 		return 0;
+
+	}
+
+	public boolean hayFichas() {
+
+		boolean hay = false;
+
+		for (int i = 0; i < fichas.length && !hay; i++) {
+
+			if (fichas[i] != null) {
+
+				hay = true;
+
+			}
+
+		}
+
+		return hay;
 
 	}
 

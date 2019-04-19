@@ -277,4 +277,91 @@ public class Parques {
 
 	}
 
+	public void asignarJugadores(Jugador uno, Jugador dos, Jugador tres, Jugador cuatro) {
+
+		jugadores[0] = uno;
+		jugadores[1] = dos;
+		jugadores[2] = tres;
+		jugadores[3] = cuatro;
+
+	}
+
+	public Jugador getTurnoActual() {
+
+		Jugador j = null;
+
+		for (int i = 0; i < jugadores.length; i++) {
+
+			if (jugadores[i].isTurno()) {
+
+				j = jugadores[i];
+
+			}
+
+		}
+
+		return j;
+
+	}
+
+	public void asignarSiguienteTurno() {
+
+		Jugador j = getTurnoActual();
+
+		if (j.getNumero() < 3) {
+
+			jugadores[j.getNumero()].setTurno(false);
+			jugadores[j.getNumero() + 1].setTurno(true);
+
+		} else if (j.getNumero() == 3) {
+
+			jugadores[j.getNumero()].setTurno(false);
+			jugadores[0].setTurno(true);
+
+		}
+
+	}
+
+	public void definirPrimerTurno(int uno, int dos, int tres, int cuatro) {
+
+		int[] valores = { uno, dos, tres, cuatro };
+
+		int mayor = valores[0];
+		int index = 0;
+
+		for (int i = 1; i < valores.length; i++) {
+
+			if (valores[i] > mayor) {
+
+				index = i;
+
+			}
+
+		}
+
+		jugadores[index].setTurno(true);
+
+	}
+
+	public void moverFicha(Ficha ficha, int valorDado) {
+
+		Casilla actual = null;
+		Casilla destino = null;
+		int posActual = ficha.getPosicion();
+
+		actual = casillas[posActual];
+
+		actual.quitarFicha(ficha);
+
+		ficha.mover(casillas, valorDado);
+		int posDestino = ficha.getPosicion();
+
+		destino = casillas[posDestino];
+
+		destino.agregarFicha(ficha);
+		
+		rellenarZonas();
+
+	}
+
 }
