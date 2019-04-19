@@ -24,6 +24,8 @@ public class MainWindow extends JFrame {
 		
 		parquesGame = new Parques();
 		inicio = new PanelInicio(this);
+		
+	
 
 		try {
 

@@ -3,6 +3,8 @@ package view;
 import javax.swing.*;
 import javax.swing.colorchooser.ColorSelectionModel;
 
+import model.Jugador;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -248,7 +250,11 @@ public class PanelInicio extends JPanel implements ActionListener {
 		if (e.getSource().equals(butJugar)) {
 
 			
-			
+
+			for (int i = 0; i < txtNombres.length; i++) {
+				window.getParquesGame().getJugadores()[i] = new Jugador(txtNombres[i].getText(), i + 1);
+
+			}
 			
 			parques = new PanelParques(this);
 

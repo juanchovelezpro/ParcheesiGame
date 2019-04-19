@@ -8,25 +8,23 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class PanelJugador extends JPanel implements ActionListener{
+public class PanelJugador extends JPanel implements ActionListener {
 
-	
 	private PanelParques parques;
-	private Jugador jugador;
+	private int id;
 	private JLabel labInfoJugador;
 	private JButton butLanzarDados;
 	private JButton butCarcel;
 
-	public PanelJugador(PanelParques parques, Jugador jugador) {
+	public PanelJugador(PanelParques parques, int id) {
 
 		this.parques = parques;
-		
-		this.jugador = jugador;
+		this.id = id;
 
 		setLayout(null);
-		
+
 		init();
-		
+
 		add(labInfoJugador);
 		add(butLanzarDados);
 		add(butCarcel);
@@ -35,16 +33,20 @@ public class PanelJugador extends JPanel implements ActionListener{
 
 	public void init() {
 
+		Jugador[] jugadores = parques.getInicio().getWindow().getParquesGame().getJugadores();
+
 		Font font = new Font("Century Gothic", 1, 24);
-		
-		labInfoJugador = new JLabel(jugador.getNombre() + " #" + jugador.getNumero());
+
+		labInfoJugador = new JLabel(jugadores[id - 1].getNombre() + "- Player #" + jugadores[id - 1].getNumero());
 		labInfoJugador.setFont(font);
-		labInfoJugador.setBounds(0,0,400,80);
-		
+		labInfoJugador.setBounds(25, 0, 400, 80);
+		labInfoJugador.setHorizontalAlignment(SwingConstants.CENTER);
+
 		butLanzarDados = new JButton("LANZAR DADOS");
 		butLanzarDados.setFont(font);
 		butLanzarDados.setBounds(10, 265, 450, 50);
-		
+		butLanzarDados.addActionListener(this);
+
 		butCarcel = new JButton();
 		butCarcel.setBounds(15, 100, 435, 60);
 		butCarcel.setLayout(new GridLayout(1, 4));
@@ -62,6 +64,18 @@ public class PanelJugador extends JPanel implements ActionListener{
 
 		super.paintComponent(g);
 
+		Jugador[] jugadores = parques.getInicio().getWindow().getParquesGame().getJugadores();
+
+		for (int i = 0; i < jugadores[id - 1].getFichas().length; i++) {
+
+			if (!jugadores[id - 1].getFichas()[i].isLibre()) {
+
+				butCarcel.getComponent(i).setBackground(parques.getInicio().getButsColores()[id - 1].getBackground());
+
+			}
+
+		}
+
 	}
 
 	public PanelParques getParques() {
@@ -72,12 +86,12 @@ public class PanelJugador extends JPanel implements ActionListener{
 		this.parques = parques;
 	}
 
-	public Jugador getJugador() {
-		return jugador;
+	public int getId() {
+		return id;
 	}
 
-	public void setJugador(Jugador jugador) {
-		this.jugador = jugador;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public JLabel getLabInfoJugador() {
@@ -106,7 +120,13 @@ public class PanelJugador extends JPanel implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+
+		if (e.getSource().equals(butLanzarDados)) {
+
+			System.out.println("Lanzando dados - Player#" + id);
+
+		}
+
 	}
 
 }

@@ -11,6 +11,7 @@ public class PanelParques extends JPanel {
 
 	private PanelInicio inicio;
 	private PanelJugador[] panelesJugadores;
+	private PanelDados panelDados;
 
 	private JButton[][] zonaUnoBut;
 	private JButton[][] zonaDosBut;
@@ -25,6 +26,7 @@ public class PanelParques extends JPanel {
 	public PanelParques(PanelInicio inicio) {
 
 		this.inicio = inicio;
+		panelDados = new PanelDados(this);
 
 		setLayout(new GridLayout(3, 3));
 
@@ -36,7 +38,7 @@ public class PanelParques extends JPanel {
 		add(panelZonaCuatro);
 		add(panelesJugadores[2]);
 		add(panelZonaUno);
-		add(new JLabel());
+		add(panelDados);
 		add(panelZonaTres);
 		add(panelesJugadores[0]);
 		add(panelZonaDos);
@@ -65,7 +67,7 @@ public class PanelParques extends JPanel {
 		
 		for(int i = 0; i<panelesJugadores.length; i++) {
 			
-		panelesJugadores[i] = new PanelJugador(this, new Jugador("", i+1));	
+		panelesJugadores[i] = new PanelJugador(this, i+1);	
 			
 			
 		}
