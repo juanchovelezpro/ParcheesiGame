@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.colorchooser.ColorSelectionModel;
 
 import model.Jugador;
+import threads.HiloGame;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -21,6 +22,7 @@ public class PanelInicio extends JPanel implements ActionListener {
 	private JButton[] butsEscogerColor;
 	private JColorChooser[] coloresJugadores;
 	private JPanel auxPanel;
+	private HiloGame game;
 
 	public PanelInicio(MainWindow window) {
 
@@ -249,15 +251,13 @@ public class PanelInicio extends JPanel implements ActionListener {
 
 		if (e.getSource().equals(butJugar)) {
 
-			
-
 			for (int i = 0; i < txtNombres.length; i++) {
 				window.getParquesGame().getJugadores()[i] = new Jugador(txtNombres[i].getText(), i + 1);
 
 			}
-			
-			window.getParquesGame().getJugadores()[1].setTurno(true);
-			
+
+			window.getParquesGame().getJugadores()[0].setTurno(true);
+
 			parques = new PanelParques(this);
 
 			if (coloresJugadores[0].getColor() != Color.WHITE && coloresJugadores[1].getColor() != Color.WHITE
@@ -270,6 +270,9 @@ public class PanelInicio extends JPanel implements ActionListener {
 				window.add(parques);
 				window.setSize(1400, 1000);
 				window.refresh();
+
+				game = new HiloGame(window.getParquesGame(), parques);
+				game.start();
 
 			} else {
 

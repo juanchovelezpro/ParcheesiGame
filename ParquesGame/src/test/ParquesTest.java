@@ -51,6 +51,23 @@ class ParquesTest extends TestCase {
 		parques.moverFicha(uno.getFichas()[0], 12);
 		
 	}
+	
+	public void escenarioTres() {
+		
+		parques = new Parques();
+
+		Jugador uno = new Jugador("JuanchoVelezPro", 1);
+		Jugador dos = new Jugador("Ghosterline", 2);
+		Jugador tres = new Jugador("anrode", 3);
+		Jugador cuatro = new Jugador("jevic", 4);
+		
+		parques.asignarJugadores(uno, dos, tres, cuatro);
+		
+		parques.getJugadores()[0].setTurno(true);
+		
+		
+		
+	}
 
 	/*
 	 * En este se busca verificar que cuando las fichas de un jugador salga de la carcel, se posicionen en su salida correspondiente.
@@ -85,4 +102,19 @@ class ParquesTest extends TestCase {
 
 	}
 
+	
+	@Test
+	public void testAsignarSiguienteTurno() {
+		
+	escenarioTres();
+	
+	parques.asignarSiguienteTurno();
+	
+	assertTrue(!parques.getJugadores()[0].isTurno());
+	assertTrue(parques.getJugadores()[1].isTurno());
+		
+		
+		
+	}
+	
 }

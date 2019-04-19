@@ -326,15 +326,19 @@ public class Parques {
 	public void asignarSiguienteTurno() {
 
 		Jugador j = getTurnoActual();
+		System.out.println(j.getNumero()-1);
+		int index = j.getNumero()-1;
+		
+		if (index < 3) {
 
-		if (j.getNumero() < 3) {
+			
+			jugadores[index].setTurno(false);
+			jugadores[index+1].setTurno(true);
 
-			jugadores[j.getNumero()].setTurno(false);
-			jugadores[j.getNumero() + 1].setTurno(true);
+		} else if (index == 3) {
 
-		} else if (j.getNumero() == 3) {
-
-			jugadores[j.getNumero()].setTurno(false);
+			
+			jugadores[index].setTurno(false);
 			jugadores[0].setTurno(true);
 
 		}

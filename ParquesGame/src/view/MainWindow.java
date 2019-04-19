@@ -3,6 +3,7 @@ package view;
 import javax.swing.*;
 
 import model.Parques;
+import threads.HiloGame;
 import tools.ResourceLoader;
 
 import java.awt.*;
@@ -11,6 +12,7 @@ public class MainWindow extends JFrame {
 
 	private Parques parquesGame;
 	private PanelInicio inicio;
+	
 
 	public MainWindow() {
 

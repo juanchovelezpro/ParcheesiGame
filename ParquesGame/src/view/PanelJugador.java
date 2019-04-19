@@ -54,13 +54,11 @@ public class PanelJugador extends JPanel implements ActionListener {
 		labCarcel = new JLabel("CARCEL");
 		labCarcel.setFont(font);
 		labCarcel.setBounds(90, 60, 100, 25);
-		
+
 		labLibres = new JLabel("LIBRES");
 		labLibres.setFont(font);
 		labLibres.setBounds(310, 60, 100, 25);
-		
-		
-		
+
 		butLanzarDados = new JButton("LANZAR DADOS");
 		butLanzarDados.setFont(font);
 		butLanzarDados.setBackground(parques.getInicio().getButsColores()[id - 1].getBackground());
@@ -126,6 +124,16 @@ public class PanelJugador extends JPanel implements ActionListener {
 
 		}
 
+		if (jugadores[id - 1].isTurno()) {
+
+			butLanzarDados.setEnabled(true);
+
+		} else {
+
+			butLanzarDados.setEnabled(false);
+
+		}
+
 		repaint();
 
 	}
@@ -176,10 +184,10 @@ public class PanelJugador extends JPanel implements ActionListener {
 		if (e.getSource().equals(butLanzarDados)) {
 
 			System.out.println("Lanzando dados - Player#" + id);
-			
+
 			Jugador[] jugadores = parques.getInicio().getWindow().getParquesGame().getJugadores();
-			
-			jugadores[id-1].lanzarDados();
+
+			jugadores[id - 1].lanzarDados();
 			
 			
 

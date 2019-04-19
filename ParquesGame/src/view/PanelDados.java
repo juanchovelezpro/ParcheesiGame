@@ -141,7 +141,6 @@ public class PanelDados extends JPanel implements ActionListener {
 			}
 
 		}
-
 		repaint();
 
 	}
@@ -160,5 +159,31 @@ public class PanelDados extends JPanel implements ActionListener {
 		}
 
 	}
+
+	public JButton getButDadoUno() {
+		return butDadoUno;
+	}
+
+	public void setButDadoUno(JButton butDadoUno) {
+		this.butDadoUno = butDadoUno;
+	}
+
+	public JButton getButDadoDos() {
+		return butDadoDos;
+	}
+
+	public void setButDadoDos(JButton butDadoDos) {
+		this.butDadoDos = butDadoDos;
+	}
+
+	public JLabel getLabTurnoActual() {
+		return labTurnoActual;
+	}
+
+	public void setLabTurnoActual(JLabel labTurnoActual) {
+		this.labTurnoActual = labTurnoActual;
+	}
+	
+	
 
 }

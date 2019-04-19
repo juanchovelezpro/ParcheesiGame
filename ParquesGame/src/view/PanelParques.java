@@ -278,6 +278,22 @@ public class PanelParques extends JPanel {
 		return panelZonaDos;
 	}
 
+	public PanelJugador[] getPanelesJugadores() {
+		return panelesJugadores;
+	}
+
+	public void setPanelesJugadores(PanelJugador[] panelesJugadores) {
+		this.panelesJugadores = panelesJugadores;
+	}
+
+	public PanelDados getPanelDados() {
+		return panelDados;
+	}
+
+	public void setPanelDados(PanelDados panelDados) {
+		this.panelDados = panelDados;
+	}
+
 	public void setPanelZonaDos(JPanel panelZonaDos) {
 		this.panelZonaDos = panelZonaDos;
 	}
