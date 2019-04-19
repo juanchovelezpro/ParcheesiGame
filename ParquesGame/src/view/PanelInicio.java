@@ -22,7 +22,7 @@ public class PanelInicio extends JPanel implements ActionListener {
 	private JButton[] butsEscogerColor;
 	private JColorChooser[] coloresJugadores;
 	private JPanel auxPanel;
-	private HiloGame game;
+	private HiloGame hiloGame;
 
 	public PanelInicio(MainWindow window) {
 
@@ -256,8 +256,6 @@ public class PanelInicio extends JPanel implements ActionListener {
 
 			}
 
-			window.getParquesGame().getJugadores()[0].setTurno(true);
-
 			parques = new PanelParques(this);
 
 			if (coloresJugadores[0].getColor() != Color.WHITE && coloresJugadores[1].getColor() != Color.WHITE
@@ -271,8 +269,8 @@ public class PanelInicio extends JPanel implements ActionListener {
 				window.setSize(1400, 1000);
 				window.refresh();
 
-				game = new HiloGame(window.getParquesGame(), parques);
-				game.start();
+				hiloGame = new HiloGame(window.getParquesGame(), parques);
+				hiloGame.start();
 
 			} else {
 
@@ -315,5 +313,13 @@ public class PanelInicio extends JPanel implements ActionListener {
 
 		}
 
+	}
+
+	public HiloGame getHiloGame() {
+		return hiloGame;
+	}
+
+	public void setGame(HiloGame hiloGame) {
+		this.hiloGame = hiloGame;
 	}
 }

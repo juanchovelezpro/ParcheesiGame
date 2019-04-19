@@ -151,6 +151,7 @@ public class PanelDados extends JPanel implements ActionListener {
 		if (e.getSource().equals(butDadoUno)) {
 
 			System.out.println("Soy el dado uno");
+			
 
 		} else if (e.getSource().equals(butDadoDos)) {
 

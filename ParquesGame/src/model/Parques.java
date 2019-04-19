@@ -365,7 +365,7 @@ public class Parques {
 		jugadores[index].setTurno(true);
 
 	}
-
+	
 	public void moverFicha(Ficha ficha, int valorDado) {
 
 		Casilla actual = null;

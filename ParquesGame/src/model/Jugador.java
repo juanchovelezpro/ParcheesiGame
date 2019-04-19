@@ -129,7 +129,7 @@ public class Jugador {
 
 		boolean lanzar = false;
 
-		if (getFichasLibres() != 0) {
+		if (getFichasLibres() == 0) {
 
 			lanzar = true;
 

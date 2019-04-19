@@ -187,7 +187,8 @@ public class PanelJugador extends JPanel implements ActionListener {
 
 			Jugador[] jugadores = parques.getInicio().getWindow().getParquesGame().getJugadores();
 
-			jugadores[id - 1].lanzarDados();
+			jugadores[id - 1].lanzarDados();	
+			
 			
 			
 
