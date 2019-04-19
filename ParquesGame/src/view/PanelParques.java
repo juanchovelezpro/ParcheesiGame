@@ -3,12 +3,14 @@ package view;
 import javax.swing.*;
 
 import model.Casilla;
+import model.Jugador;
 
 import java.awt.*;
 
 public class PanelParques extends JPanel {
 
 	private PanelInicio inicio;
+	private PanelJugador[] panelesJugadores;
 
 	private JButton[][] zonaUnoBut;
 	private JButton[][] zonaDosBut;
@@ -30,15 +32,15 @@ public class PanelParques extends JPanel {
 
 		refillZonas();
 
-		add(new JLabel());
+		add(panelesJugadores[3]);
 		add(panelZonaCuatro);
-		add(new JLabel());
+		add(panelesJugadores[2]);
 		add(panelZonaUno);
 		add(new JLabel());
 		add(panelZonaTres);
-		add(new JLabel());
+		add(panelesJugadores[0]);
 		add(panelZonaDos);
-		add(new JLabel());
+		add(panelesJugadores[1]);
 
 	}
 
@@ -58,6 +60,15 @@ public class PanelParques extends JPanel {
 		panelZonaDos.setLayout(new GridLayout(8, 3));
 		panelZonaTres.setLayout(new GridLayout(3, 8));
 		panelZonaCuatro.setLayout(new GridLayout(8, 3));
+		
+		panelesJugadores = new PanelJugador[4];
+		
+		for(int i = 0; i<panelesJugadores.length; i++) {
+			
+		panelesJugadores[i] = new PanelJugador(this, new Jugador("", i+1));	
+			
+			
+		}
 
 	}
 

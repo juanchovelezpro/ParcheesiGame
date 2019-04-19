@@ -35,7 +35,12 @@ public class PanelInicio extends JPanel implements ActionListener {
 
 	public void init() {
 
+		Font font = new Font("Century Gothic", 1, 36);
+		Font fontDos = new Font("Century Gothic", 1, 24);
+		Font fontText = new Font("Century Gothic", 1, 16);
+
 		butJugar = new JButton("JUGAR");
+		butJugar.setFont(font);
 		butJugar.addActionListener(this);
 
 		auxPanel = new JPanel();
@@ -51,17 +56,19 @@ public class PanelInicio extends JPanel implements ActionListener {
 		for (int i = 1; i < 5; i++) {
 
 			butsColores[i - 1] = new JButton("COLOR");
-			butsColores[i - 1].setFont(new Font("Garamond", 1, 20));
+			butsColores[i - 1].setFont(fontDos);
 			butsColores[i - 1].addActionListener(this);
 
 			labsJugadores[i - 1] = new JLabel("Jugador #" + i);
-			labsJugadores[i - 1].setFont(new Font("Garamond", 1, 20));
+			labsJugadores[i - 1].setFont(fontDos);
 			labsJugadores[i - 1].setHorizontalAlignment(SwingConstants.CENTER);
 
 			butsEscogerColor[i - 1] = new JButton("ESCOGER");
+			butsEscogerColor[i - 1].setFont(fontDos);
 			butsEscogerColor[i - 1].addActionListener(this);
 
 			txtNombres[i - 1] = new JTextField();
+			txtNombres[i - 1].setFont(fontText);
 			coloresJugadores[i - 1] = new JColorChooser();
 			dialogsColores[i - 1] = new JDialog(window, "Escoge un color");
 			dialogsColores[i - 1].setLayout(new BorderLayout());
@@ -109,6 +116,70 @@ public class PanelInicio extends JPanel implements ActionListener {
 
 	public void setButJugar(JButton butJugar) {
 		this.butJugar = butJugar;
+	}
+
+	public PanelParques getParques() {
+		return parques;
+	}
+
+	public void setParques(PanelParques parques) {
+		this.parques = parques;
+	}
+
+	public JLabel[] getLabsJugadores() {
+		return labsJugadores;
+	}
+
+	public void setLabsJugadores(JLabel[] labsJugadores) {
+		this.labsJugadores = labsJugadores;
+	}
+
+	public JTextField[] getTxtNombres() {
+		return txtNombres;
+	}
+
+	public void setTxtNombres(JTextField[] txtNombres) {
+		this.txtNombres = txtNombres;
+	}
+
+	public JButton[] getButsColores() {
+		return butsColores;
+	}
+
+	public void setButsColores(JButton[] butsColores) {
+		this.butsColores = butsColores;
+	}
+
+	public JDialog[] getDialogsColores() {
+		return dialogsColores;
+	}
+
+	public void setDialogsColores(JDialog[] dialogsColores) {
+		this.dialogsColores = dialogsColores;
+	}
+
+	public JButton[] getButsEscogerColor() {
+		return butsEscogerColor;
+	}
+
+	public void setButsEscogerColor(JButton[] butsEscogerColor) {
+		this.butsEscogerColor = butsEscogerColor;
+	}
+
+	public JColorChooser[] getColoresJugadores() {
+		return coloresJugadores;
+	}
+
+	public void setColoresJugadores(JColorChooser[] coloresJugadores) {
+		this.coloresJugadores = coloresJugadores;
+	}
+
+	public JPanel getAuxPanel() {
+		return auxPanel;
+	}
+
+	public void setAuxPanel(JPanel auxPanel) {
+		this.auxPanel = auxPanel;
 	}
 
 	public void personalizarParques(Color uno, Color dos, Color tres, Color cuatro) {
@@ -176,6 +247,9 @@ public class PanelInicio extends JPanel implements ActionListener {
 
 		if (e.getSource().equals(butJugar)) {
 
+			
+			
+			
 			parques = new PanelParques(this);
 
 			if (coloresJugadores[0].getColor() != Color.WHITE && coloresJugadores[1].getColor() != Color.WHITE

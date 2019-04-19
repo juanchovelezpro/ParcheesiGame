@@ -13,7 +13,7 @@ public class MainWindow extends JFrame {
 
 	public MainWindow() {
 
-		setTitle("Parques Game");
+		setTitle("Parcheesi Game");
 		setLayout(new BorderLayout());
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(500, 200);
