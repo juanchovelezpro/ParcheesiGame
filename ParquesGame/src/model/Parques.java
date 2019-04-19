@@ -286,6 +286,25 @@ public class Parques {
 
 	}
 
+	public void sacarFichaDeLaCarcel(Ficha ficha) {
+
+		ficha.setLibre(true);
+
+		casillas[ficha.getPosicion()].agregarFicha(ficha);
+
+		rellenarZonas();
+
+	}
+
+	public void sacarTodasDeLaCarcel(Ficha[] fichas) {
+
+		for (int i = 0; i < fichas.length; i++) {
+
+			sacarFichaDeLaCarcel(fichas[i]);
+
+		}
+	}
+
 	public Jugador getTurnoActual() {
 
 		Jugador j = null;
@@ -359,7 +378,7 @@ public class Parques {
 		destino = casillas[posDestino];
 
 		destino.agregarFicha(ficha);
-		
+
 		rellenarZonas();
 
 	}

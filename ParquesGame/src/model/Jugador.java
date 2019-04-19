@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Random;
+
 public class Jugador {
 
 	private String nombre;
@@ -8,7 +10,6 @@ public class Jugador {
 	private boolean turno;
 	private Dado dadoUno;
 	private Dado dadoDos;
-	
 
 	public Jugador(String nombre, int numero) {
 
@@ -21,8 +22,48 @@ public class Jugador {
 		dadoDos = new Dado();
 
 		fichas = new Ficha[4];
-		
+
 		generarFichas();
+
+	}
+
+	public int getFichasLibres() {
+
+		int libres = 0;
+
+		for (int i = 0; i < fichas.length; i++) {
+
+			if (!fichas[i].isOut()) {
+
+				if (fichas[i].isLibre()) {
+
+					libres++;
+
+				}
+
+			}
+
+		}
+
+		return libres;
+
+	}
+
+	public int getFichasOut() {
+
+		int out = 0;
+
+		for (int i = 0; i < fichas.length; i++) {
+
+			if (fichas[i].isOut()) {
+
+				out++;
+
+			}
+
+		}
+
+		return out;
 
 	}
 
@@ -84,4 +125,41 @@ public class Jugador {
 		this.fichas = fichas;
 	}
 
+	public boolean lanzarDadosTresVeces() {
+
+		boolean lanzar = false;
+
+		if (getFichasLibres() != 0) {
+
+			lanzar = true;
+
+		}
+
+		return lanzar;
+
+	}
+
+	public boolean lanzamientoPar() {
+
+		boolean lanzar = false;
+
+		if (dadoUno.getValor() == dadoDos.getValor()) {
+
+			lanzar = true;
+
+		}
+
+		return lanzar;
+
+	}
+
+	public void lanzarDados() {
+		
+	Random ran = new Random();
+	
+	dadoUno.setValor(ran.nextInt(6)+1);
+	dadoDos.setValor(ran.nextInt(6)+1);
+		
+		
+	}
 }
