@@ -22,6 +22,7 @@ public class MainWindow extends JFrame {
 		setSize(500, 200);
 		setResizable(false);
 
+		setLocationRelativeTo(null);
 		setIconImage(ResourceLoader.loadImage("/logo.png"));
 		
 		parquesGame = new Parques();

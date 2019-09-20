@@ -267,6 +267,7 @@ public class PanelInicio extends JPanel implements ActionListener {
 				window.remove(this);
 				window.add(parques);
 				window.setSize(1400, 1000);
+				window.setLocationRelativeTo(null);
 				window.refresh();
 
 				hiloGame = new HiloGame(window.getParquesGame(), parques);
